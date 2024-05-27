@@ -201,7 +201,7 @@
     </div>
 
     <div class="box-titleRenders" style="width: 100vw; display: flex; justify-content: start; align-items: center;">
-        <p style=" margin-top: 15px;">Mais</p>
+        <p style=" margin-top: 15px;">🎯 Recomendação</p>
     </div>
     <div class="boxRenderTreiles"
         style=" width: 100vw; display: flex; justify-content: start; align-items: center; flex-wrap: wrap; width: 100%; /*background-color: #21D07A; */overflow-x: scroll;">
@@ -330,7 +330,7 @@
 
         function getSimilar(filtro) {
             let ajax = new XMLHttpRequest();
-            ajax.open('GET', `https://api.themoviedb.org/3/movie/${filtro}/similar?language=pt&api_key=9ad6ab6d85229f1eea1b1ca48f55b4b9`);
+            ajax.open('GET', `https://api.themoviedb.org/3/movie/${filtro}/recommendations?language=pt&api_key=9ad6ab6d85229f1eea1b1ca48f55b4b9`);
             ajax.onreadystatechange = () => {
                 if (ajax.readyState == 4 && ajax.status == 200) {
                     console.log(JSON.parse(ajax.response).results);
