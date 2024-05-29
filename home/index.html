@@ -227,7 +227,11 @@
     <script>
         window.addEventListener('load', ()=>{
             let body = document.getElementById('body');
-            body.classList.remove('skeleton')
+
+            setTimeout(() => {
+                body.classList.remove('skeleton')
+            }, 1000);
+            
         });
         
         renderTendenciaDia();
