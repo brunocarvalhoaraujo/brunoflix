@@ -65,10 +65,9 @@
 
 
 
-    .skeleton{
-        
-    }
-    .skeleton::after{
+    .skeleton {}
+
+    .skeleton::after {
         content: "";
         justify-content: center;
         align-items: center;
@@ -80,14 +79,15 @@
         top: 0px;
         left: 0px;
         z-index: 9999;
-        animation: 1s skeleton infinite ;
+        animation: 1s skeleton infinite;
     }
 
     @keyframes skeleton {
-        0%{
-            background-position: -1000px ;
+        0% {
+            background-position: -1000px;
         }
-        100%{
+
+        100% {
             background-position: 1000px;
         }
     }
@@ -95,8 +95,10 @@
 
 <body id="body" class="skeleton">
 
-    <div class="boxvideoInit" style="max-height: 180px; overflow: hidden; display: flex; justify-content: center; align-items: center; position: relative; width: 100vw; box-shadow: inset 0px -40px 24px 0px rgba(24,29,35,1);">
-        <video src="./v-init2.mp4" autoplay muted loop style="width: 100%; z-index: -1; filter: grayscale(1);  opacity: 0.2;"></video>
+    <div class="boxvideoInit"
+        style="max-height: 180px; overflow: hidden; display: flex; justify-content: center; align-items: center; position: relative; width: 100vw; box-shadow: inset 0px -40px 24px 0px rgba(24,29,35,1);">
+        <video src="./v-init2.mp4" autoplay muted loop
+            style="width: 100%; z-index: -1; filter: grayscale(1);  opacity: 0.2;"></video>
     </div>
 
 
@@ -137,13 +139,15 @@
         </div>
     </div>
 
-    <div class="box-titleRenders" style="width: 100vw; display: flex; justify-content: start; align-items: center; margin-top: -100px;">
+    <div class="box-titleRenders"
+        style="width: 100vw; display: flex; justify-content: start; align-items: center; margin-top: -100px;">
         <p style="font-size: 20px; margin-top: 15px; margin-left: 15px;">🔥Hoje</p>
     </div>
     <div class="boxRenderTendeciasDia"
         style=" width: 100vw; display: flex; justify-content: start; align-items: center; flex-wrap: wrap; width: 100%; /*background-color: #21D07A; */overflow-x: scroll;;">
 
-        <div id="boxRenderCapasDia" class="rendercapas" style=" display: flex; /* background-color: red; */  z-index: 9999;">
+        <div id="boxRenderCapasDia" class="rendercapas"
+            style=" display: flex; /* background-color: red; */  z-index: 9999;">
             <!-- render -->
         </div>
     </div>
@@ -225,15 +229,16 @@
     </div>
 
     <script>
-        window.addEventListener('load', ()=>{
+        var colorNota;
+        window.addEventListener('load', () => {
             let body = document.getElementById('body');
 
             setTimeout(() => {
                 body.classList.remove('skeleton')
             }, 1000);
-            
+
         });
-        
+
         renderTendenciaDia();
         renderTendenciaSemana();
         RenderRecomendados1('598');
@@ -304,7 +309,16 @@
                     let rendercapas = document.getElementById('boxRenderCapasDia');
                     rendercapas.innerHTML = '';
                     JSON.parse(ajax.response).results.slice(0, 20).forEach((key) => {
-                        let porcent = key.vote_average.toString().replace('.', '').substr(0, 2);
+                        let porcent = Number(key.vote_average.toString().replace('.', '').substr(0, 2));
+
+
+                        if (porcent >= 60) {
+                            colorNota = "#269A61";
+                        } else {
+                            colorNota = "#FCAE2D";
+                        }
+
+
                         console.log(porcent);
                         rendercapas.innerHTML += `
                         
@@ -315,7 +329,7 @@
 
                             <div class="box-nota " style="margin-top: -15px; margin-left: 10px; position: relative;">
                                 <div class="nota-radius" style="background-color:#032541; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden;">
-                                    <div class="barra" style="background-color: #21D07A; height: ${porcent}%; width: 120%; position: absolute; bottom: 0px; left: 0px; transform: rotate(-35deg);"></div>
+                                    <div class="barra" style="background-color: ${colorNota}; height: ${porcent}%; width: 120%; position: absolute; bottom: 0px; left: 0px; transform: rotate(-35deg);"></div>
                                     <div class="box" style="background-color:#181D23; width: 85%; height: 85%; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 99;">
                                         <div class="number" style="font-size: 16px;">
                                             ${key.vote_average.toString().replace('.', '').substr(0, 2)}
