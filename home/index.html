@@ -78,7 +78,7 @@
         position: absolute;
         top: 0px;
         left: 0px;
-        z-index: 9999;
+        z-index: 999999;
         animation: 1s skeleton infinite;
     }
 
@@ -91,14 +91,18 @@
             background-position: 1000px;
         }
     }
+
+    .barra {
+        background: rgb(131, 58, 180);
+        background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    }
 </style>
 
 <body id="body" class="skeleton">
 
     <div class="boxvideoInit"
         style="max-height: 180px; overflow: hidden; display: flex; justify-content: center; align-items: center; position: relative; width: 100vw; box-shadow: inset 0px -40px 24px 0px rgb(0, 0, 0);">
-        <video src="./v-init2.mp4" autoplay muted loop
-            style="width: 100%; z-index: -1;  opacity: 0.2;"></video>
+        <video src="./v-init2.mp4" autoplay muted loop style="width: 100%; z-index: -1;  opacity: 0.2;"></video>
     </div>
 
 
@@ -130,11 +134,11 @@
 
             <div class="icone"
                 style="width: 35px; height: 35px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; margin: 6px;">
-                <img src="./icon/home.png" alt="" style="height: 90%; border-radius: 5px;">
+                <img src="./icon/home.png" alt="" style="height: 90%; border-radius: 50%;">
             </div>
             <div class="icone" onclick="window.location.href='../buscar/'"
                 style="width: 35px; height: 35px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; margin: 6px;">
-                <img src="./icon/seach.png" alt="" style="height: 90%; border-radius: 5px;">
+                <img src="./icon/seach.png" alt="" style="height: 90%; border-radius: 50%;">
             </div>
         </div>
     </div>
@@ -272,14 +276,7 @@
                         let porcent = Number(key.vote_average.toString().replace('.', '').substr(0, 2));
 
 
-                        if (porcent >= 60) {
-                            colorNota = "#269A61";
-                        } else {
-                            colorNota = "#FCAE2D";
-                        }
-
-
-                        console.log(porcent);
+                        // console.log(porcent);
                         rendercapas.innerHTML += `
                         
                         <div class="capa" style="height: auto; width: 200px; margin: 10px; position: relative;" >
@@ -289,7 +286,7 @@
 
                             <div class="box-nota " style="margin-top: -15px; margin-left: 10px; position: relative;">
                                 <div class="nota-radius" style="background-color:#032541; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden;">
-                                    <div class="barra" style="background-color: ${colorNota}; height: ${porcent}%; width: 120%; position: absolute; bottom: 0px; left: 0px; transform: rotate(-35deg);"></div>
+                                    <div class="barra" style="height: ${porcent}%; width: 120%; position: absolute; bottom: 0px; left: 0px; transform: rotate(-35deg);"></div>
                                     <div class="box" style="background-color:#181D23; width: 85%; height: 85%; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 99;">
                                         <div class="number" style="font-size: 16px;">
                                             ${key.vote_average.toString().replace('.', '').substr(0, 2)}
