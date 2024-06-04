@@ -8,6 +8,8 @@
 </head>
 
 <style>
+     @import url('../scroll.css');
+    @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
     * {
         margin: 0px;
         padding: 0px;
@@ -72,14 +74,14 @@
 
 <body id="body" class="skeleton">
     <style>
-        .boxIcones {
+        .Menu {
             -webkit-box-shadow: 0px 0px 47px 23px rgba(0, 0, 0, 1);
             -moz-box-shadow: 0px 0px 47px 23px rgba(0, 0, 0, 1);
             box-shadow: 0px 0px 47px 23px rgba(0, 0, 0, 1);
 
         }
 
-        icone {
+        .icone {
             transition: 0.5s;
         }
 
@@ -91,16 +93,24 @@
         }
     </style>
     <div class="Menu"
-        style="position: fixed;  z-index: 999999; right: 0px; top: 20vh; display: flex; justify-content: center; align-items: center;">
+        style="position: fixed;  z-index: 999999; right: 0px; top: 0px; display: flex; justify-content: center; align-items: center; background-color: #000;">
+
+        <div class="boxLogo"
+            style="width: 50vw; height: auto; background-color: rgb(255, 255, 255); border-radius: 10px 0 0 10px; background-color: #000; justify-content: start; align-items: center; display: flex;">
+            <img src="./img/logo.png" alt="" style="height: 35px; margin-left: 15px;">
+            <h2 class="barra"
+                style="font-size: 20px;  font-family: 'Pixelify Sans', sans-serif; background-clip: text; -webkit-text-fill-color: transparent;">
+                PIRATAFLIX</h2>
+        </div>
 
         <div class="boxIcones"
-            style="width: auto; height: auto; background-color: rgb(255, 255, 255); padding-top: 5px; padding-bottom: 5px; border-radius: 10px 0 0 10px; background-color: #000">
+            style="width: 50vw; height: auto; background-color: rgb(255, 255, 255); border-radius: 10px 0 0 10px; background-color: #000; justify-content: flex-end; display: flex; filter: grayscale(1);">
 
             <div class="icone" onclick="window.location.href='../home/'"
                 style="width: 35px; height: 35px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; margin: 6px;">
                 <img src="./icon/home.png" alt="" style="height: 90%; border-radius: 50%;">
             </div>
-            <div class="icone" onclick="window.location.href='../buscar/#inputNomeFilme'"
+            <div class="icone" onclick="window.location.href='./'"
                 style="width: 35px; height: 35px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; margin: 6px;">
                 <img src="./icon/seach.png" alt="" style="height: 90%; border-radius: 50%;">
             </div>
@@ -110,9 +120,9 @@
 
 
     <div class="boxInput"
-        style="height: auto; width: 100vw; display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 20px;">
+        style="height: auto; width: 100vw; display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 80px;">
         <input id="inputNomeFilme" type="text" placeholder="🔎 Pesquisar por um filme.."
-            style="width: 90%; height: 45px; background-color: #060606; padding-left: 10px; border: 0px; border-radius: 10px; margin-bottom: 20px;">
+            style="width: 90%; height: 45px; background-color: #323232; padding-left: 10px; border: 0px; border-radius: 10px; margin-bottom: 20px;">
     </div>
 
     <div class="boxRenderCapas"
